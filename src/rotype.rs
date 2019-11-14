@@ -6,11 +6,11 @@
  * @Email: botahamec@outlook.com
  * @Create At: 2019-11-09 20:49:44
  * @Last Modified By: Mike White
- * @Last Modified At: 2019-11-09 21:31:28
+ * @Last Modified At: 2019-11-14 18:32:59
  * @Description: Ro's typing system is implemented here
  */
 
-use crate::variable::RoVariable;
+use std::collections::HashMap;
 
 macro_rules! new_ro_type {
 	($name: ident, $type: ty) => {
@@ -33,7 +33,7 @@ new_ro_type!(RoI64, i64);
 new_ro_type!(RoF32, f32);
 new_ro_type!(RoF64, f64);
 new_ro_type!(RoBool, bool);
-new_ro_type!(RoStruct, Vec<RoVariable>);
+new_ro_type!(RoStruct, HashMap<String, RoType>);
 
 pub struct RoArray {
 	value: Vec<RoType>,
