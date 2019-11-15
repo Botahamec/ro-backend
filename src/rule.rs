@@ -6,28 +6,28 @@
  * @Email: botahamec@outlook.com
  * @Create At: 2019-11-14 18:38:14
  * @Last Modified By: Mike White
- * @Last Modified At: 2019-11-14 18:43:53
+ * @Last Modified At: 2019-11-14 19:01:44
  * @Description: Rules for the parameters of a function
  */
 
+use crate::rotype::RoType;
+
 // what the rule is looking for
 enum RuleType {
-	EQUAL(_),
+	EQUAL(RoType),
 	GREATER(usize),
 	LESS(usize),
 	AND(RuleDuo),
 	OR(RuleDuo),
-	XOR(RuleDuo)
-	NOT(FunctionRule),
-	CONTAIN(Vec<_>)
+	XOR(RuleDuo),
+	NOT(Box<FunctionRule>),
+	CONTAIN(Vec<RoType>)
 }
 
 pub struct FunctionRule {
-	variable: String,
-	type: RuleType
+	parameter: String,
+	ruletype: RuleType
 }
 
-pub struct RuleDuo {
-	FunctionRule,
-	FunctionRule
-}
+// two rules joined for a RuleType
+struct RuleDuo(Box<FunctionRule>, Box<FunctionRule>);

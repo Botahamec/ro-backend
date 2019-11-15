@@ -6,11 +6,12 @@
  * @Email: botahamec@outlook.com
  * @Create At: 2019-11-09 20:49:44
  * @Last Modified By: Mike White
- * @Last Modified At: 2019-11-14 18:32:59
+ * @Last Modified At: 2019-11-14 19:01:09
  * @Description: Ro's typing system is implemented here
  */
 
 use std::collections::HashMap;
+use crate::function::RoFunction;
 
 macro_rules! new_ro_type {
 	($name: ident, $type: ty) => {
@@ -20,8 +21,10 @@ macro_rules! new_ro_type {
 	};
 }
 
-// primitive types
+// contains the list of properties of a struct
+type StructProperties = HashMap<String, RoType>;
 
+// primitive types
 new_ro_type!(RoU8, u8);
 new_ro_type!(RoU16, u16);
 new_ro_type!(RoU32, u32);
@@ -33,7 +36,8 @@ new_ro_type!(RoI64, i64);
 new_ro_type!(RoF32, f32);
 new_ro_type!(RoF64, f64);
 new_ro_type!(RoBool, bool);
-new_ro_type!(RoStruct, HashMap<String, RoType>);
+new_ro_type!(FunctionType, RoFunction);
+new_ro_type!(RoStruct, StructProperties);
 
 pub struct RoArray {
 	value: Vec<RoType>,

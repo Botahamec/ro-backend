@@ -6,14 +6,16 @@
  * @Email: botahamec@outlook.com
  * @Create At: 2019-11-09 21:05:31
  * @Last Modified By: Mike White
- * @Last Modified At: 2019-11-14 18:31:47
+ * @Last Modified At: 2019-11-14 18:49:33
  * @Description: This is description.
  */
 
 use crate::result::RoResult;
+use crate::rule::FunctionRule;
 
 pub struct RoFunction {
 	name: String,
 	result: String, // the name of the result attached to the function
-	execution: RoResult // the result that gets run by the function
+	execution: RoResult, // the result that gets run by the function
+	rules: Vec<FunctionRule>
 }
