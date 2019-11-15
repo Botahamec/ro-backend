@@ -6,7 +6,7 @@
  * @Email: botahamec@outlook.com
  * @Create At: 2019-11-09 20:49:44
  * @Last Modified By: Mike White
- * @Last Modified At: 2019-11-14 19:37:45
+ * @Last Modified At: 2019-11-14 19:52:57
  * @Description: Ro's typing system is implemented here
  */
 
@@ -15,6 +15,7 @@ use crate::result::RoFunction;
 
 macro_rules! new_ro_type {
 	($name: ident, $type: ty) => {
+		#[derive(Clone)]
 		pub struct $name {
 			value: $type
 		}
@@ -37,13 +38,20 @@ new_ro_type!(RoF32, f32);
 new_ro_type!(RoF64, f64);
 new_ro_type!(RoBool, bool);
 new_ro_type!(FunctionType, RoFunction);
-new_ro_type!(RoStruct, StructProperties);
 
+#[derive(Clone)]
+pub struct RoStruct {
+	pub name: String,
+	pub value: StructProperties
+}
+
+#[derive(Clone)]
 pub struct RoArray {
 	pub value: Vec<RoType>,
 	pub length: usize // needed for some rules
 }
 
+#[derive(Clone)]
 pub enum RoType {
 	None,
 	RoU8(RoU8),

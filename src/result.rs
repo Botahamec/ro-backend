@@ -6,7 +6,7 @@
  * @Email: botahamec@outlook.com
  * @Create At: 2019-11-09 20:48:47
  * @Last Modified By: Mike White
- * @Last Modified At: 2019-11-14 19:37:15
+ * @Last Modified At: 2019-11-14 19:48:27
  * @Description: Contains the result type used by Ro
  */
 
@@ -14,11 +14,13 @@ use crate::rotype::RoType;
 use crate::rule::FunctionRule;
 use std::collections::HashMap;
 
+#[derive(Clone)]
 pub enum ResultCall {
 	Operation(RoOperation),
 	Result
 }
 
+#[derive(Clone)]
 pub struct RoResult {
 	pub name: String,
 	pub parameters: HashMap<String, RoType>,
@@ -29,6 +31,7 @@ pub struct RoResult {
 	pub compilable: bool
 }
 
+#[derive(Clone)]
 pub struct RoFunction {
 	pub name: String,
 	pub result: String, // the name of the result attached to the function
@@ -36,6 +39,7 @@ pub struct RoFunction {
 	pub rules: Vec<FunctionRule>
 }
 
+#[derive(Clone)]
 pub struct RoOperation {
 	operation: usize,
 	parameters: Vec<usize>
@@ -52,13 +56,13 @@ impl RoResult {
 			compilable: bool
 			) -> Self {
 		RoResult {
-			name: name,
-			parameters: parameters,
-			return_type: return_type,
-			call: call,
-			optimized: optimized,
-			skippable: skippable,
-			compilable: compilable
+			name,
+			parameters,
+			return_type,
+			call,
+			optimized,
+			skippable,
+			compilable
 		}
 	}
 }
