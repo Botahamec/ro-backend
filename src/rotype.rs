@@ -6,12 +6,12 @@
  * @Email: botahamec@outlook.com
  * @Create At: 2019-11-09 20:49:44
  * @Last Modified By: Mike White
- * @Last Modified At: 2019-11-14 19:01:09
+ * @Last Modified At: 2019-11-14 19:37:45
  * @Description: Ro's typing system is implemented here
  */
 
 use std::collections::HashMap;
-use crate::function::RoFunction;
+use crate::result::RoFunction;
 
 macro_rules! new_ro_type {
 	($name: ident, $type: ty) => {
@@ -40,11 +40,12 @@ new_ro_type!(FunctionType, RoFunction);
 new_ro_type!(RoStruct, StructProperties);
 
 pub struct RoArray {
-	value: Vec<RoType>,
-	length: usize // needed for some rules
+	pub value: Vec<RoType>,
+	pub length: usize // needed for some rules
 }
 
 pub enum RoType {
+	None,
 	RoU8(RoU8),
 	RoU16(RoU16),
 	RoU32(RoU32),

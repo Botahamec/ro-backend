@@ -6,17 +6,54 @@
  * @Email: botahamec@outlook.com
  * @Create At: 2019-11-14 18:22:57
  * @Last Modified By: Mike White
- * @Last Modified At: 2019-11-14 18:28:06
+ * @Last Modified At: 2019-11-14 19:37:34
  * @Description: Container for all the required objects of a Ro program
  */
 
 use std::collections::HashMap;
 use crate::result::RoResult;
-use crate::function::RoFunction;
+use crate::result::RoFunction;
 use crate::rotype::RoStruct;
+use crate::rotype::RoType;
+use crate::result::ResultCall;
 
 pub struct RoProgram {
-	results: HashMap<String, RoResult>,
-	functions: HashMap<String, RoFunction>,
-	structs: HashMap<String, RoStruct>
+	pub results: HashMap<String, RoResult>,
+	pub functions: HashMap<String, RoFunction>,
+	pub structs: HashMap<String, RoStruct>,
+	pub main_result: RoResult
+}
+
+impl Default for RoProgram {
+	fn default() -> Self {
+		RoProgram {
+			results: HashMap::new(),
+			functions: HashMap::new(),
+			structs: HashMap::new(),
+			main_result: RoResult::new(
+					String::from("main"),
+					HashMap::new(),
+					RoType::None,
+					ResultCall::Result,
+					true,
+					false,
+					true
+			)
+		}
+	}
+}
+
+impl RoProgram {
+	fn new() -> Self {Default::default()}
+}
+
+fn test() {
+	let result = RoResult::new(String::from("main"),
+					HashMap::new(),
+					RoType::None,
+					ResultCall::Result,
+					true,
+					false,
+					true);
+	println!("{}", result.name);
 }
