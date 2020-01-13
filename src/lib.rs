@@ -17,3 +17,10 @@ pub mod function;
 pub mod call;
 pub mod parameter;
 pub mod result;
+
+pub use program::Program;
+pub use function::Function;
+pub use call::Call;
+pub use call::CallType;
+pub use parameter::Parameter;
+pub use result::RoResult;
