@@ -6,7 +6,7 @@
  * @Email: botahamec@outlook.com
  * @Create At: 2019-11-14 18:22:57
  * @Last Modified By: Mike White
- * @Last Modified At: 2019-11-14 19:56:32
+ * @Last Modified At: 2019-11-14 20:05:08
  * @Description: Container for all the required objects of a Ro program
  */
 
@@ -46,7 +46,7 @@ impl Default for RoProgram {
 
 impl RoProgram {
 
-	fn new() -> Self {Default::default()}
+	pub fn new() -> Self {Default::default()}
 
 	fn add_result(&mut self, result: RoResult) {
 		self.results.insert(result.name.clone(), result);
