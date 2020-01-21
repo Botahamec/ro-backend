@@ -7,8 +7,8 @@ pub enum CallType {
 
 #[derive(Default, PartialEq, Clone)]
 pub struct Call {
-	call: String,
-	call_type: CallType
+	pub call: String,
+	pub call_type: CallType
 }
 
 impl Default for CallType {

@@ -1,7 +1,7 @@
 #[derive(Default, PartialEq, Clone)]
 pub struct Function {
-	name: String,
-	parameters: Vec<crate::parameter::Parameter>,
-	return_type: String,
-	calls: Vec<crate::call::Call>
+	pub name: String,
+	pub parameters: Vec<crate::parameter::Parameter>,
+	pub return_type: String,
+	pub calls: Vec<crate::call::Call>
 }
