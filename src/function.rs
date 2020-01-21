@@ -1,7 +1,7 @@
 #[derive(Default, PartialEq, Clone)]
-pub struct RoResult {
+pub struct Function {
 	name: String,
 	parameters: Vec<crate::parameter::Parameter>,
 	return_type: String,
-	functions: Vec<String>,
+	calls: Vec<crate::call::Call>
 }
