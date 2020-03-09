@@ -14,13 +14,9 @@
 
 pub mod call;
 pub mod function;
-pub mod parameter;
 pub mod program;
 pub mod result;
 
-pub use call::Call;
-pub use call::CallType;
 pub use function::Function;
-pub use parameter::Parameter;
 pub use program::Program;
 pub use result::RoResult;
